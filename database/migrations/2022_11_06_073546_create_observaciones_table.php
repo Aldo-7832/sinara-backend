@@ -16,7 +16,7 @@ class CreateObservacionesTable extends Migration
         Schema::create('observaciones', function (Blueprint $table) {
             $table->id();
             $table->string('observacion', 255);
-            $table->string('evidencia', 255);
+            $table->string('evidencia',255);
             $table->timestamp('fecha');
             $table->unsignedBigInteger('recolectado_id')->nullable();
         });
