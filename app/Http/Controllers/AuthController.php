@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    
+
     public function register(Request $request){
         $messages = [
             'required' => 'El campo :attribute es obligatorio',

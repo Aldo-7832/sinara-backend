@@ -21,7 +21,7 @@ class UbicacionController extends Controller
 
         $fields = Validator::make($request->all(), [
             'calle' => 'required|string|max:45',
-            'codigo_postal' => 'required|string|max:8|min:6',
+            'codigo_postal' => 'required|string|max:8|min:5',
             'colonia' => 'required|string|max:45',
             'numero' => 'required|string|max:5'
         ], $messages);
@@ -69,7 +69,7 @@ class UbicacionController extends Controller
 
         $fields = Validator::make($request->all(), [
             'calle' => 'required|string|max:45',
-            'codigo_postal' => 'required|string|max:8|min:6',
+            'codigo_postal' => 'required|string|max:8|min:5',
             'colonia' => 'required|string|max:45',
             'numero' => 'required|string|max:5'
         ], $messages);

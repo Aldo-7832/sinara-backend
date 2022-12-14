@@ -12,7 +12,16 @@ class ObservacionController extends Controller
 
     public function getObservationByIdRecolectado($idRecolectado)
     {
-        //
+        $recolectado = DB::table('observaciones')
+        ->select('observacion','evidencia','fecha')
+        ->where('recolectado_id', $idRecolectado)
+        ->orderBy('fecha','desc')
+        ->get();
+
+        $response = [
+            "data" => $recolectado
+        ];
+        return response($response, 200);
     }
 
     public function create(Request $request)
@@ -26,16 +35,19 @@ class ObservacionController extends Controller
         $fields = Validator::make($request->all(), [
             'observacion' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'recolectado_id' => 'required|integer',
-            'evidencia' => 'required'
+            'recolectado_id' => 'required|integer'
         ], $messages);
 
         if (!$fields->fails()) {
-            $observation = Recolectado::create([
+            $path = "";
+            if($request['evidencia']){
+                $path = $request['evidencia'];
+            }
+            $observation = Observacion::create([
                 'observacion' => $request['observacion'],
                 'fecha' => $request['fecha'],
                 'recolectado_id' => $request['recolectado_id'],
-                'evidencia' => $request['evidencia']
+                'evidencia' => $path
             ]);
             $response = [
                 "data" => $observation,
