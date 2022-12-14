@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Open requests
 //Auth
 Route::post('/login',[AuthController::class, 'login']);//login to get token
+Route::get('/category/show',[CategoriaController::class, 'show']);
 
 //Send token to this requests
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -51,7 +52,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/store/destroy/{id}',[CadenaController::class, 'destroy']);
     //Category
     Route::resource('category', CategoriaController::class);
-    Route::get('/category/show',[CategoriaController::class, 'show']);
     Route::put('/category/update/{id}',[CategoriaController::class, 'update']);
     Route::post('/category/create',[CategoriaController::class, 'create']);
     Route::delete('/category/destroy/{id}',[CategoriaController::class, 'destroy']);
