@@ -17,7 +17,8 @@ class Recolectado extends Model
         "caducidad",
         "estatus",
         "producto_id",
-        "donacion_id"
+        "donacion_id",
+        "fecha_recolectado"
     ];
 
     public $timestamps = false;
