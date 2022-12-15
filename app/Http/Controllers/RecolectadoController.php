@@ -22,7 +22,7 @@ class RecolectadoController extends Controller
         ->where('recolectados.estatus', '1')
         ->where('recolectados.fecha_recolectado','>',$fecha_inicial)
         ->where('recolectados.fecha_recolectado','<',$fecha_final)
-        ->orderBy('recolectados.fecha_recolectado')
+        ->orderBy('recolectados.fecha_recolectado','desc')
         ->get();
         
         $response = [
@@ -39,7 +39,7 @@ class RecolectadoController extends Controller
             ->select('recolectados.*', 'productos.nombre as producto', 'categorias.nombre as categoria')
             ->where('donacion_id', $idDonation)
             ->where('donaciones.usuario_id', $idUser)
-            ->orderBy('estatus','desc')
+            ->orderBy('estatus')
             ->get();
 
         $response = [
@@ -55,7 +55,7 @@ class RecolectadoController extends Controller
             ->join('donaciones', 'recolectados.donacion_id', '=', 'donaciones.id')
             ->select('recolectados.*', 'productos.nombre as producto', 'categorias.nombre as categoria')
             ->where('donacion_id', $idDonation)
-            ->orderBy('estatus','desc')
+            ->orderBy('estatus')
             ->get();
 
         $response = [
@@ -73,7 +73,7 @@ class RecolectadoController extends Controller
             ->where('donacion_id', $idDonation)
             ->where('donaciones.usuario_id', $idUser)
             ->where('productos.nombre','like','%'.$product.'%')
-            ->orderBy('estatus','desc')
+            ->orderBy('estatus')
             ->get();
 
         $response = [
