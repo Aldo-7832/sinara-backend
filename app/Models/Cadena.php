@@ -22,7 +22,7 @@ class Cadena extends Model
     public $timestamps = false;
     
     public function ubicacion(){
-        return $this->belongsTo(ubicacion::class, "ubicacion_id", "id");
+        return $this->belongsTo(Ubicacion::class, "ubicacion_id", "id");
     }
 
 }

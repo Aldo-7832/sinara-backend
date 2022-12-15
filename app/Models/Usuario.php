@@ -32,11 +32,11 @@ class Usuario extends Authenticatable
     ];
 
     public function rol(){
-        return $this->belongsTo(rol::class, "rol_id", "id");
+        return $this->belongsTo(Rol::class, "rol_id", "id");
     }
     
     public function persona(){
-        return $this->belongsTo(persona::class, "persona_id", "id");
+        return $this->belongsTo(Persona::class, "persona_id", "id");
     }
 
 }

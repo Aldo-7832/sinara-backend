@@ -22,7 +22,7 @@ class Observacion extends Model
     public $timestamps = false;
 
     public function recolectado(){
-        return $this->belongsTo(recolectado::class, "recolectado_id", "id");
+        return $this->belongsTo(Recolectado::class, "recolectado_id", "id");
     }
 
 }
