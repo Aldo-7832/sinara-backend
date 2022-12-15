@@ -13,7 +13,7 @@ class DonacionController extends Controller
     public function donationsByIdUser($idUser){
         $donation = Donacion::with('cadena','cadena.ubicacion')
         ->where('usuario_id', $idUser)
-        ->orderBy('donaciones.fecha_recoleccion')
+        ->orderBy('donaciones.fecha_recoleccion', 'desc')
         ->get();
         $response = [
             "data" => $donation
